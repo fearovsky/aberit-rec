@@ -4,7 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\Employee;
 use Illuminate\Http\Request;
+use Illuminate\Http\JsonResponse;
 use App\Services\EmployeeServiceI;
+use Illuminate\Support\Facades\Log;
+use App\Enums\Database\EmployeeHttpEnum;
+use App\Http\Resources\EmployeeResource;
 
 class EmployeeController extends Controller
 {
@@ -13,12 +17,20 @@ class EmployeeController extends Controller
     ) {
     }
 
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+    public function index(): JsonResponse
     {
-        //
+        try {
+            $employees = $this->employeeService->getAll();
+        } catch (\Exception $e) {
+            Log::error('Error fetching employees: ' . $e->getMessage());
+
+            return response()->json([
+                'message' => EmployeeHttpEnum::EMPLOYEE_ERROR_GET_ALL->value,
+            ], 500);
+        }
+
+        return EmployeeResource::collection($employees)
+            ->response();
     }
 
     /**
