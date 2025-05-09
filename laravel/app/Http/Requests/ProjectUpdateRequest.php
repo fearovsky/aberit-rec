@@ -24,7 +24,6 @@ class ProjectUpdateRequest extends FormRequest
         return [
             'name' => 'sometimes|required|string|max:255',
             'description' => 'sometimes|nullable|string',
-            'status' => 'sometimes|required|string|in:active,completed',
         ];
     }
 }
