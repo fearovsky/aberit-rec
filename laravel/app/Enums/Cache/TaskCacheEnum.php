@@ -2,12 +2,10 @@
 
 namespace App\Enums\Cache;
 
-enum EmployeCacheEnum: string
+enum TaskCacheEnum: string
 {
-    case EMPLOYEES_ALL = 'employees.all';
-    case EMPLOYEE_BY_ID = 'employees.%d';
-    case EMPLOYEE_PROJECTS = 'employee.%d.projects';
-    case EMPLOYEE_TASKS = 'employee.%d.tasks';
+    case TASKS_ALL = 'tasks.all';
+    case TASK_BY_ID = 'tasks.%d';
 
     public function key(int|array $params = []): string
     {
