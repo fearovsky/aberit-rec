@@ -2,7 +2,7 @@
 
 namespace Laravel\App\Enums\Database;
 
-enum ProjectStatusEnum: string
+enum TaskStatusEnum: string
 {
     case PENDING = 'pending';
     case IN_PROGRESS = 'in_progress';
