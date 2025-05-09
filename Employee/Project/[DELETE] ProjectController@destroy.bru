@@ -1,0 +1,18 @@
+meta {
+  name: [DELETE] ProjectController@destroy
+  type: http
+  seq: 3
+}
+
+delete {
+  url: localhost/api/v1/projects/2
+  body: none
+  auth: none
+}
+
+body:json {
+  {
+    "name": "Przykładowy",
+    "description": "Odbiegająco"
+  }
+}
