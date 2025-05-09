@@ -1,0 +1,21 @@
+meta {
+  name: [PUT] TaskController@update
+  type: http
+  seq: 4
+}
+
+put {
+  url: localhost/api/v1/tasks/3
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "project_id": 3,
+    "title": "Implementacja API RESTful",
+    "description": "Stworzyć kompletne inne",
+    "status": "pending",
+    "due_date": "2025-06-01"
+  }
+}

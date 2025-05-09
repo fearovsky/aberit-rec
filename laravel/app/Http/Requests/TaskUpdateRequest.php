@@ -2,6 +2,8 @@
 
 namespace App\Http\Requests;
 
+use Illuminate\Validation\Rule;
+use App\Enums\Database\TaskStatusEnum;
 use Illuminate\Foundation\Http\FormRequest;
 
 class TaskUpdateRequest extends FormRequest
@@ -25,7 +27,11 @@ class TaskUpdateRequest extends FormRequest
             'project_id' => 'sometimes|required|exists:projects,id',
             'title' => 'sometimes|required|string|max:255',
             'description' => 'sometimes|nullable|string',
-            'status' => 'sometimes|required|string|in:todo,in_progress,completed',
+            'status' => [
+                'required',
+                'string',
+                Rule::in(TaskStatusEnum::toArray()),
+            ],
             'due_date' => 'sometimes|nullable|date',
         ];
     }
