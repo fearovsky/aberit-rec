@@ -1,6 +1,6 @@
 {
   "version": "1",
-  "name": "Employee",
+  "name": "Bruno_API_TESTS",
   "type": "collection",
   "ignore": [
     "node_modules",

@@ -1,11 +1,17 @@
 meta {
   name: [POST] EmployeeProjectController@assignProject
   type: http
-  seq: 3
+  seq: 2
 }
 
-get {
+post {
   url: localhost/api/v1/employees/1/projects
-  body: none
+  body: json
   auth: none
+}
+
+body:json {
+  {
+    "project_id": 3
+  }
 }

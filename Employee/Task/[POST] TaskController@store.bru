@@ -1,0 +1,21 @@
+meta {
+  name: [POST] TaskController@store
+  type: http
+  seq: 2
+}
+
+post {
+  url: localhost/api/v1/tasks
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "project_id": 3,
+    "title": "Implementacja API RESTful",
+    "description": "Stworzyć kompletne",
+    "status": "pending",
+    "due_date": "2025-06-01"
+  }
+}

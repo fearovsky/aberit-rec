@@ -72,9 +72,9 @@ class EmployeeController extends Controller
             ], 500);
         }
 
-        return EmployeeResource::make($employee)
-            ->response()
-            ->setStatusCode(200);
+        return response()->json([
+            'message' => EmployeeHttpEnum::EMPLOYEE_SUCCESS_UPDATE->value,
+        ], 200);
     }
 
     /**

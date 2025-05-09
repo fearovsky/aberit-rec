@@ -2,6 +2,8 @@
 
 namespace App\Http\Requests;
 
+use Illuminate\Validation\Rule;
+use App\Enums\Database\TaskStatusEnum;
 use Illuminate\Foundation\Http\FormRequest;
 
 class TaskStoreRequest extends FormRequest
@@ -22,10 +24,14 @@ class TaskStoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'project_id' => 'required|exists:projects,id',
+            'project_id' => 'required|exists:projects,id|unique:tasks,project_id',
             'title' => 'required|string|max:255',
             'description' => 'nullable|string',
-            'status' => 'required|string|in:todo,in_progress,completed',
+            'status' => [
+                'required',
+                'string',
+                Rule::in(TaskStatusEnum::toArray()),
+            ],
             'due_date' => 'nullable|date',
         ];
     }

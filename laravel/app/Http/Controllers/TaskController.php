@@ -72,9 +72,9 @@ class TaskController extends Controller
             ], 500);
         }
 
-        return TaskResource::make($task)
-            ->response()
-            ->setStatusCode(200);
+        return response()->json([
+            'message' => TaskHttpEnum::TASK_SUCCESS_UPDATE->value,
+        ], 200);
     }
 
     /**

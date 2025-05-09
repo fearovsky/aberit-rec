@@ -72,9 +72,9 @@ class ProjectController extends Controller
             ], 500);
         }
 
-        return ProjectResource::make($project)
-            ->response()
-            ->setStatusCode(200);
+        return response()->json([
+            'message' => ProjectHttpEnum::PROJECT_SUCCESS_UPDATE->value,
+        ], 200);
     }
 
     /**
