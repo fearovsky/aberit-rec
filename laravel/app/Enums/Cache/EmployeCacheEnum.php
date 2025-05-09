@@ -1,6 +1,6 @@
 <?php
 
-namespace Laravel\App\Enums\Cache;
+namespace App\Enums\Cache;
 
 enum EmployeCacheEnum: string
 {

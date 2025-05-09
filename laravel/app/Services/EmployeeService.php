@@ -1,12 +1,12 @@
 <?php
 
-namespace Laravel\App\Services;
+namespace App\Services;
 
 use App\Models\Employee;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Database\Eloquent\Collection;
-use Laravel\App\Enums\Cache\EmployeCacheEnum;
-use Laravel\App\Repositories\EmployeeRepositoryI;
+use App\Enums\Cache\EmployeCacheEnum;
+use App\Repositories\EmployeeRepositoryI;
 
 class EmployeeService implements EmployeeServiceI
 {

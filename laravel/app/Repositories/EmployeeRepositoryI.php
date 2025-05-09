@@ -1,6 +1,6 @@
 <?php
 
-namespace Laravel\App\Repositories;
+namespace App\Repositories;
 
 use Illuminate\Database\Eloquent\Collection;
 

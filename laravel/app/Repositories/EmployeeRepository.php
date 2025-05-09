@@ -4,7 +4,7 @@ namespace App\Repositories;
 
 use App\Models\Employee;
 use Illuminate\Database\Eloquent\Collection;
-use Laravel\App\Repositories\EmployeeRepositoryI;
+use App\Repositories\EmployeeRepositoryI;
 
 class EmployeeRepository implements EmployeeRepositoryI
 {

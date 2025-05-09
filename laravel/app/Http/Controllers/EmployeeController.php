@@ -4,9 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Models\Employee;
 use Illuminate\Http\Request;
+use App\Services\EmployeeServiceI;
 
 class EmployeeController extends Controller
 {
+    public function __construct(
+        private EmployeeServiceI $employeeService,
+    ) {
+    }
+
     /**
      * Display a listing of the resource.
      */

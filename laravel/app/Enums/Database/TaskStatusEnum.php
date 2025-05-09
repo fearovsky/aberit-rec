@@ -1,6 +1,6 @@
 <?php
 
-namespace Laravel\App\Enums\Database;
+namespace App\Enums\Database;
 
 enum TaskStatusEnum: string
 {
