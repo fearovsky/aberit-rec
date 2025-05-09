@@ -9,6 +9,7 @@ use App\Services\EmployeeServiceI;
 use Illuminate\Support\Facades\Log;
 use App\Enums\Database\EmployeeHttpEnum;
 use App\Http\Resources\EmployeeResource;
+use App\Http\Requests\StoreEmployeeRequest;
 
 class EmployeeController extends Controller
 {
@@ -33,12 +34,21 @@ class EmployeeController extends Controller
             ->response();
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    public function create(StoreEmployeeRequest $request)
     {
-        //
+        try {
+            $employee = $this->employeeService->create($request->validated());
+        } catch (\Exception $e) {
+            Log::error('Error creating employee: ' . $e->getMessage());
+
+            return response()->json([
+                'message' => EmployeeHttpEnum::EMPLOYEE_ERROR_CREATE->value,
+            ], 500);
+        }
+
+        return EmployeeResource::make($employee)
+            ->response()
+            ->setStatusCode(201);
     }
 
     /**
