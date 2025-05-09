@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Log;
 use App\Http\Resources\TaskResource;
-use App\Enums\Database\ProjectTaskHttpEnum;
+use App\Enums\Http\ProjectTaskHttpEnum;
 use App\Http\Requests\TaskStoreRequest;
 
 class ProjectTaskController extends Controller

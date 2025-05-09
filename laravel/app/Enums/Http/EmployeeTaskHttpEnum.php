@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Enums\Database;
+namespace App\Enums\Http;
 
 enum EmployeeTaskHttpEnum: string
 {

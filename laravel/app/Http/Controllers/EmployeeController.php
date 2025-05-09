@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 use App\Services\EmployeeServiceI;
 use Illuminate\Support\Facades\Log;
-use App\Enums\Database\EmployeeHttpEnum;
+use App\Enums\Http\EmployeeHttpEnum;
 use App\Http\Resources\EmployeeResource;
 use App\Http\Requests\{
     EmployeeStoreRequest,

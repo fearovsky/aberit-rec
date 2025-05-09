@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 use App\Services\TaskServiceI;
 use Illuminate\Support\Facades\Log;
-use App\Enums\Database\TaskHttpEnum;
+use App\Enums\Http\TaskHttpEnum;
 use App\Http\Resources\TaskResource;
 use App\Http\Requests\{
     TaskStoreRequest,

@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 use App\Services\ProjectServiceI;
 use Illuminate\Support\Facades\Log;
-use App\Enums\Database\ProjectHttpEnum;
+use App\Enums\Http\ProjectHttpEnum;
 use App\Http\Resources\ProjectResource;
 use App\Http\Requests\{
     ProjectStoreRequest,

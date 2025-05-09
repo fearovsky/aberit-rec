@@ -9,7 +9,7 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Log;
 use App\Http\Resources\TaskResource;
 use App\Http\Resources\EmployeeResource;
-use App\Enums\Database\EmployeeTaskHttpEnum;
+use App\Enums\Http\EmployeeTaskHttpEnum;
 
 class EmployeeTaskController extends Controller
 {
