@@ -54,18 +54,12 @@ class EmployeeController extends Controller
             ->setStatusCode(201);
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(Employee $employee)
     {
         return EmployeeResource::make($employee)
             ->response();
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(EmployeeUpdateRequest $request, Employee $employee)
     {
         try {

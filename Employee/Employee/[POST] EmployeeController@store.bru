@@ -1,0 +1,20 @@
+meta {
+  name: [POST] EmployeeController@store
+  type: http
+  seq: 2
+}
+
+post {
+  url: localhost/api/v1/employees
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "name": "Jan Kowalski",
+    "email": "jan.kowalski@example.com",
+    "phone": "+48 123 456 789",
+    "position": "Full Stack Developer"
+  }
+}
