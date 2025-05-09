@@ -38,24 +38,24 @@ class EmployeeService implements EmployeeServiceI
         return $employee;
     }
 
-    public function update(int $id, array $data): bool
+    public function update(Employee $employee, array $data): bool
     {
-        $result = $this->employeeRepository->update($id, $data);
+        $result = $this->employeeRepository->update($employee, $data);
 
         if ($result) {
-            Cache::forget(EmployeCacheEnum::EMPLOYEE_BY_ID->key($id));
+            Cache::forget(EmployeCacheEnum::EMPLOYEE_BY_ID->key($employee->id));
             Cache::forget(EmployeCacheEnum::EMPLOYEES_ALL->key());
         }
 
         return $result;
     }
 
-    public function delete(int $id): bool
+    public function delete(Employee $employee): bool
     {
-        $result = $this->employeeRepository->delete($id);
+        $result = $this->employeeRepository->delete($employee);
 
         if ($result) {
-            Cache::forget(EmployeCacheEnum::EMPLOYEE_BY_ID->key($id));
+            Cache::forget(EmployeCacheEnum::EMPLOYEE_BY_ID->key($employee->id));
             Cache::forget(EmployeCacheEnum::EMPLOYEES_ALL->key());
         }
 

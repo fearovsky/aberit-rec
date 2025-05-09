@@ -9,7 +9,11 @@ enum EmployeeHttpEnum: string
 
     case EMPLOYEE_ERROR_CREATE = 'employee.error.create';
     case EMPLOYEE_ERROR_UPDATE = 'employee.error.update';
+    case EMPLOYEE_ERROR_DELETE = 'employee.error.delete';
 
     case EMPLOYE_SUCCESS_CREATE = 'employee.success.create';
     case EMPLOYEE_SUCCESS_UPDATE = 'employee.success.update';
+    case EMPLOYEE_SUCCESS_DELETE = 'employee.success.delete';
+
+
 }

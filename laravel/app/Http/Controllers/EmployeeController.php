@@ -9,7 +9,10 @@ use App\Services\EmployeeServiceI;
 use Illuminate\Support\Facades\Log;
 use App\Enums\Database\EmployeeHttpEnum;
 use App\Http\Resources\EmployeeResource;
-use App\Http\Requests\StoreEmployeeRequest;
+use App\Http\Requests\{
+    EmployeeStoreRequest,
+    EmployeeUpdateRequest
+};
 
 class EmployeeController extends Controller
 {
@@ -34,7 +37,7 @@ class EmployeeController extends Controller
             ->response();
     }
 
-    public function store(StoreEmployeeRequest $request)
+    public function store(EmployeeStoreRequest $request)
     {
         try {
             $employee = $this->employeeService->create($request->validated());
@@ -56,15 +59,28 @@ class EmployeeController extends Controller
      */
     public function show(Employee $employee)
     {
-        //
+        return EmployeeResource::make($employee)
+            ->response();
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Employee $employee)
+    public function update(EmployeeUpdateRequest $request, Employee $employee)
     {
-        //
+        try {
+            $employee = $this->employeeService->update($employee, $request->validated());
+        } catch (\Exception $e) {
+            Log::error('Error updating employee: ' . $e->getMessage());
+
+            return response()->json([
+                'message' => EmployeeHttpEnum::EMPLOYEE_ERROR_UPDATE->value,
+            ], 500);
+        }
+
+        return EmployeeResource::make($employee)
+            ->response()
+            ->setStatusCode(200);
     }
 
     /**
@@ -72,6 +88,18 @@ class EmployeeController extends Controller
      */
     public function destroy(Employee $employee)
     {
-        //
+        try {
+            $this->employeeService->delete($employee);
+        } catch (\Exception $e) {
+            Log::error('Error deleting employee: ' . $e->getMessage());
+
+            return response()->json([
+                'message' => EmployeeHttpEnum::EMPLOYEE_ERROR_DELETE->value,
+            ], 500);
+        }
+
+        return response()->json([
+            'message' => EmployeeHttpEnum::EMPLOYEE_SUCCESS_DELETE->value,
+        ], 200);
     }
 }
